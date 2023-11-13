@@ -24,18 +24,17 @@ pages = loader.load_and_split()
 text_splitter = RecursiveCharacterTextSplitter(
     # Set a really small chunk size, just to show.
     chunk_size = 300,
-    chunk_overlap  = 20,
+    chunk_overlap = 20,
     length_function = len,
     is_separator_regex = False,
 )
-texts = text_splitter.split_documents(pages)
 
+# 텍스트 기반 데이터 분석의 시작점
+texts = text_splitter.split_documents(pages)
 #Embedding - , API-KEY를 통해 OpenAI 제공 임베딩 모델 로드, 비용 발생
 embeddings_model = OpenAIEmbeddings()
-
 #ChromaDB에 Split된 데이터 texts를 OpenAI Embedding 모델로 벡터화하여 저장함(메모리 적재)
 db = Chroma.from_documents(texts, embeddings_model)
-
 #Question
 question = "아내가 먹고 싶어하는 음식은 무엇이야?"
 #ChatGPT 대화 모듈 로드 temperature 값이 1에 가까울 수록 창의적인 답변 제공
