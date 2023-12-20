@@ -13,7 +13,7 @@
         const user_id = /*[[${rDTO.user_id}]]*/ '';
 
         // 현재 글번호, 자바에서 받을 변수들은 자바스크립트 변수로 저장하면 편함
-        const nSeq = /*[[${rDTO.notice_seq}]]*/'';
+        let nSeq = /*[[${rDTO.notice_seq}]]*/ '';
 
         // HTML로딩이 완료되고, 실행됨
         $(document).ready(function () {
