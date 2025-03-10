@@ -2,3 +2,4 @@
 **/.env
 **/chroma/*
 !**/chroma/
+**/application.properties
